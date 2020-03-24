@@ -16,8 +16,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
    static MyRecyclerViewAdapter adapter;
+   static int k=0;
     private NotificationReciever1 nReceiver;
-   static ArrayList<String> animalNames = new ArrayList<>();
+   static ArrayList<String> title_text = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.notif_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, animalNames);
+        adapter = new MyRecyclerViewAdapter(this, title_text);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
         nReceiver = new NotificationReciever1();
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         unregisterReceiver(nReceiver);
     }
     public static void add2(String s)
-    {
-        animalNames.add(s);
+    { k=adapter.getItemCount()-45;
+    s=k+'.'+s;
+        title_text.add(s);
         
         adapter.notifyDataSetChanged();
     }
