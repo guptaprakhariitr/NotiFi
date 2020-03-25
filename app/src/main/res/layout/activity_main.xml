@@ -15,11 +15,13 @@
         />
 
     <TextView
+        android:id="@+id/count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya"
         android:gravity="center"
-        android:text="SCROLL"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textStyle="italic" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notif_list"
         android:layout_width="match_parent"
